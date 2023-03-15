@@ -1,0 +1,16 @@
+<sitemap>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+	<loc>suncorp.com.au/</loc>
+   </url>
+	<url>
+		<loc>suncorp.com.au/banking/</loc>
+	</url>
+	<url>
+		<loc>suncorp.com.au/banking/business</loc>
+	</url>
+	<url>
+		<loc>suncorp.com.au/banking/home-loans</loc>
+	</url>
+</urlset>
+</sitemap>

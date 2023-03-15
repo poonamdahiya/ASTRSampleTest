@@ -1,0 +1,27 @@
+<job concurrent_runs="4" ufgConcurrency="20">
+	<load>configurations.xml</load>
+	<batch name="exeVar[env_batchName]">
+		<test appname="SuncorpTest" >
+			<configurations names="chromeLocalGrid"/>
+			<SmartSplit to="sitemap url groups" max="1" path="Sitemap.xml" maxAttempts="2"/>
+			<execute>
+				<action type="crawl" from="sitemap.xml file" createSeparateTest="true" path="Sitemap.xml">
+					<foreach>
+						<action type="function-addPrefix" prefix="" to="exeVar[env_prefix]" OutputVariable="env_base_url" />
+						<action type="function-addPrefix" prefix="exp[%env_base_url%]" to="exp[%url%]" OutputVariable="urlBaseline" />
+						<action type="navigate">exp[%urlBaseline%]</action>
+						<action type="forcepageload"/>
+						<action type="check" target="window" fullpage="true" useDom="false" enablePatterns="false"
+						        testName="exp[%url%]" stepName="exp[%urlBaseline%]" variationGroupId="Variation B"
+						        beforeRenderScreenshotHook= "const element = document.querySelector('body &gt; div.Page &gt; div:nth-child(3)');if(element !==null) element.remove();">
+							<add type="gridLayoutBreakpoints" viewportWidthValue="all" />
+							<add type="visualGridOption" key="polyfillAdoptedStyleSheets" value="true" />
+						</action>
+					</foreach>
+				</action>
+			</execute>
+		</test>
+	</batch>
+</job>
+
+

@@ -1,0 +1,9 @@
+<settings>
+	<apikey>Env[APPLITOOLS_API_KEY]</apikey>  <!-- Save it as a environment variable -->
+	<Server>Env[APPLITOOLS_SERVER_URL]</Server> <!-- Save it as a environment variable -->
+	<MatchLevel>Layout</MatchLevel> <!-- Use Strict for strict comparison -->
+	<Accessibility level="AA" guidelinesVersion="WCAG_2_0" />
+	<WaitBeforeScreenshot>3000</WaitBeforeScreenshot>
+	<SaveFailedTests>exeVar[override_baseline]</SaveFailedTests> <!-- Pass the value as true if you want to accept the
+	 diffs and update the baselines automatically else leave it false-->
+</settings>
